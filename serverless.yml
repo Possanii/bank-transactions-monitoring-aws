@@ -8,6 +8,7 @@ provider:
   runtime: nodejs20.x
   region: us-east-1
   stage: dev
+  memorySize: 128
 
 package:
   individually: true
@@ -22,8 +23,8 @@ build:
 
 functions:
   hello:
-    handler: src/functions/hello.handler
+    handler: src/lamba.handler
     events:
       - httpApi:
-          path: /
-          method: get
+          path: '*'
+          method: '*'
